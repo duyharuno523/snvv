@@ -1,0 +1,195 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  html,
+  body {
+    height: 100%;
+    touch-action: none; 
+  }
+  
+  body {
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    background: #111;
+    -webkit-perspective: 1000px;
+            perspective: 1000px;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+  }
+  
+  #drag-container, #spin-container {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: auto;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    -webkit-transform: rotateX(-10deg);
+            transform: rotateX(-10deg);
+            z-index: 100;
+  }
+  
+  #drag-container img, #drag-container video {
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    position: absolute;
+    left: 0;
+    top: 0;
+    max-width: 120%;
+    max-height: 120%; 
+    line-height: 200px;
+    font-size: 50px;
+    text-align: center;
+    -webkit-box-shadow: 0 0 8px #fff;
+            box-shadow: 0 0 8px #fff;
+    -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0005);
+  }
+  
+  #drag-container img:hover, #drag-container video:hover {
+    -webkit-box-shadow: 0 0 15px #fffd;
+            box-shadow: 0 0 15px #fffd;
+    -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0007);
+  }
+  
+  #drag-container p {
+    
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%) rotateX(90deg);
+            transform: translate(-50%,-50%) rotateX(90deg);
+    color: rgb(0, 195, 255);
+    animation: fadein ease 15s;
+  }
+
+  @keyframes fadein {
+      from {
+          opacity:0;
+          
+      }
+      to {
+          opacity: 1;
+          
+      }
+  }
+  
+  #ground {
+    width: 900px;
+    height: 900px;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%) rotateX(90deg);
+            transform: translate(-50%,-50%) rotateX(90deg);
+    background: -webkit-radial-gradient(center center, farthest-side , #9993, transparent);
+  }
+  
+  #music-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+  }
+  
+  @-webkit-keyframes spin {
+    from{
+      -webkit-transform: rotateY(0deg);
+              transform: rotateY(0deg);
+    } to{
+      -webkit-transform: rotateY(360deg);
+              transform: rotateY(360deg);
+    }
+  }
+  
+  @keyframes spin {
+    from{
+      -webkit-transform: rotateY(0deg);
+              transform: rotateY(0deg);
+    } to{
+      -webkit-transform: rotateY(360deg);
+              transform: rotateY(360deg);
+    }
+  }
+  @-webkit-keyframes spinRevert {
+    from{
+      -webkit-transform: rotateY(360deg);
+              transform: rotateY(360deg);
+    } to{
+      -webkit-transform: rotateY(0deg);
+              transform: rotateY(0deg);
+    }
+  }
+  @keyframes spinRevert {
+    from{
+      -webkit-transform: rotateY(360deg);
+              transform: rotateY(360deg);
+    } to{
+      -webkit-transform: rotateY(0deg);
+              transform: rotateY(0deg);
+    }
+  }
+
+ p {
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Rampart One', cursive;
+    font-size: 4vw;
+    
+}
+
+body {
+  background-image: url(img/br.jpg);
+}
+
+
+/* snow effect */
+.snow, .snow::after, .snow::before {
+  content: "";
+  position: absolute;
+  top: -650px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-image: 
+    radial-gradient(4px 4px at 100px 50px, #fff, transparent),
+    radial-gradient(6px 6px at 200px 150px, #fff, transparent),
+    radial-gradient(3px 3px at 300px 250px, #fff, transparent),
+    radial-gradient(4px 4px at 400px 350px, #fff, transparent),
+    radial-gradient(6px 6px at 500px 100px, #fff, transparent),
+    radial-gradient(3px 3px at 50px 200px, #fff, transparent),
+    radial-gradient(4px 4px at 150px 300px, #fff, transparent),
+    radial-gradient(6px 6px at 250px 400px, #fff, transparent),
+    radial-gradient(3px 3px at 350px 500px, #fff, transparent);
+    background-size: 650px 650px;
+    animation: snowEF 3s linear;
+    animation-iteration-count: infinite;
+}
+
+.snow {
+
+}
+
+.snow::after {
+  margin-left: -250px;
+  opacity: 0.5;
+  filter: blur(2px);
+}
+.snow::before {
+  margin-left: -350px;
+  opacity: 0.7;
+  filter: blur(1px);
+}
+
+@keyframes snowEF {
+  from {
+    transform: translateY(0);
+  } to {
+    transform: translateY(650px);
+  }
+}
+
+/* snow effect */
